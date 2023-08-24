@@ -8,6 +8,7 @@ import { ProductoModule } from '@producto/producto.module';
 import { ClienteModule } from '@cliente/cliente.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
+import { PostModule } from './feature/post/post.module';
 
 
 
@@ -20,8 +21,9 @@ import { CookieService } from 'ngx-cookie-service';
     BrowserModule,
     AppRoutingModule,
     ProductoModule,
-        ClienteModule,
-    CoreModule
+    ClienteModule,
+    CoreModule,
+    PostModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
