@@ -146,7 +146,7 @@ export class MensajeErrorCamposDirective implements OnInit, OnDestroy, AfterView
 
   private validarErrores(): void {
     try {
-      if (this.formControl.invalid && this.validarEstadoInicial) {
+      if (this.formControl.invalid && this.validarEstadoInicial && this.formControl.touched) {
         const primerValor = Object.keys(this.formControl.errors)[0];
         const obtenerError = this.errors[primerValor];
         const texto =

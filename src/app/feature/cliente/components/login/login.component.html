@@ -1,0 +1,14 @@
+<h1>Iniciar sesión</h1>
+<h2 *ngIf="token">Usuario logueado como {{token}}. Puede actualizar su id</h2>
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div>
+        <div>
+            <label>Id de usuario:</label>
+        </div>
+        <div>
+            <input validar type="text" id="tokenUsuario" name="tokenUsuario" placeholder="Id de usuario" class="form-control"
+                formControlName="tokenUsuario">
+        </div>
+    </div>
+    <button [disabled]="loginForm.invalid" id="botonGuardar">Iniciar sesión</button>
+</form>
