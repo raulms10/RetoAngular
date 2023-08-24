@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule), 
     canActivateChild: [SecurityGuard], canLoad: [SecurityGuard] },
-  { path: 'cliente', loadChildren: () => import('@cliente/cliente.module').then(mod => mod.ClienteModule) },
+  { path: 'login', loadChildren: () => import('@cliente/cliente.module').then(mod => mod.ClienteModule) },
   { path: 'post', loadChildren: () => import('./feature/post/post.module').then(mod => mod.PostModule), 
     canActivateChild: [SecurityGuard], canLoad: [SecurityGuard] }
 ];

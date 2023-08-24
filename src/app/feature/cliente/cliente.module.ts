@@ -7,6 +7,7 @@ import { CrearClienteComponent } from './components/crear-cliente/crear-cliente.
 import { ClienteComponent } from './components/cliente/cliente.component';
 import { SharedModule } from '@shared/shared.module';
 import { ClienteService } from './shared/service/cliente.service';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -14,10 +15,11 @@ import { ClienteService } from './shared/service/cliente.service';
     CrearClienteComponent,
     ListarClienteComponent,
     BorrarClienteComponent,
-        ClienteComponent
+    ClienteComponent,
+    LoginComponent
   ],
   imports: [
-        ClienteRoutingModule,
+    ClienteRoutingModule,
     SharedModule
   ],
   providers: [ClienteService]

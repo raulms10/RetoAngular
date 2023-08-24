@@ -14,6 +14,11 @@ export class PostService {
       .pipe(map((response: any) => response as Post[]));
   }
 
+  public consultarPorId(postId: string) {
+    return this.http.doGet(`${environment.endpoint}/posts/${postId}`)
+      .pipe(map((response: any) => response as Post));
+  }
+
   public guardar(post: Post) {
     return this.http.doPost<Post, boolean>(`${environment.endpoint}/posts`, post);
   }

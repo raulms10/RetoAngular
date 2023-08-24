@@ -1,8 +1,6 @@
 <p>listar-post works!</p>
-<div id="post">
-    <ul class="post">
-        <li *ngFor="let item of listaPosts | async">
-        <span>{{item.id}}</span> {{item.title}}
-        </li>
-    </ul>
+
+<div *ngFor="let item of listaPosts">
+   <app-card-post [post]="item" (eventEleminarPost)="eliminarPost(item)" ></app-card-post> 
 </div>
+

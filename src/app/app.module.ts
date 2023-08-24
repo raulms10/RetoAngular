@@ -9,6 +9,7 @@ import { ClienteModule } from '@cliente/cliente.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { PostModule } from './feature/post/post.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -23,7 +24,8 @@ import { PostModule } from './feature/post/post.module';
     ProductoModule,
     ClienteModule,
     CoreModule,
-    PostModule
+    PostModule,
+    BrowserAnimationsModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
