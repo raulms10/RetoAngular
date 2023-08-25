@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CorreoService } from '../../shared/service/correo.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Correo } from '../../shared/model/correo';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 const LONGITUD_MINIMA_PERMITIDA_TITULO = 3;
 const LONGITUD_MAXIMA_PERMITIDA_TITULO = 40;
@@ -14,15 +16,20 @@ const LONGITUD_MAXIMA_PERMITIDA_DESCRIPCION = 80;
   templateUrl: './crear-correo.component.html',
   styleUrls: ['./crear-correo.component.scss']
 })
-export class CrearCorreoComponent implements OnInit {
+export class CrearCorreoComponent implements OnInit, OnDestroy {
   correoForm: FormGroup;
-  token: string; 
+  token: string;
+  subs: Subscription; 
 
-  constructor(protected correoService: CorreoService, private cookieService: CookieService) { }
+  constructor(protected correoService: CorreoService, private cookieService: CookieService, private router: Router) { }
 
   ngOnInit(): void {
     this.construirFormularioCorreo();
     this.token = this.cookieService.get('token');
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 
   crear() {
@@ -32,7 +39,12 @@ export class CrearCorreoComponent implements OnInit {
       body: this.obtenerValorFormulario('body'),
       id: ''
     };
-    this.correoService.guardar(correo).subscribe(()=>window.alert('usuario creado'));
+    this.subs = this.correoService.guardar(correo).subscribe(
+      () => {
+        window.alert('usuario creado');
+        this.router.navigate(['correo']);
+      }
+    );
   }
 
   private construirFormularioCorreo() {
@@ -48,5 +60,4 @@ export class CrearCorreoComponent implements OnInit {
     const control = this.correoForm.get(nombreCampo) as FormControl;
     return control.value;
   }
-
 }
