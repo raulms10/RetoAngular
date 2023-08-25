@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription, map } from 'rxjs';
 import { CorreoService } from '../../shared/service/correo.service';
 import { Correo } from '../../shared/model/correo';
+import { CargandoService } from '@core/services/cargando.service';
 
 @Component({
   selector: 'app-detalle-correo',
@@ -17,9 +18,10 @@ export class DetalleCorreoComponent implements OnInit, OnDestroy {
   correo: Correo;
   private subs: Subscription[] = [];
   
-  constructor(private route: ActivatedRoute, protected correoService: CorreoService) { }
+  constructor(private route: ActivatedRoute, protected correoService: CorreoService, private cargandoService: CargandoService) { }
   
   ngOnInit(): void {
+    this.cargandoService.abrirCargando();
     this.subs.push(
       this.tokenId$.subscribe(paramMap => {
         this.correoId = paramMap;
@@ -28,6 +30,7 @@ export class DetalleCorreoComponent implements OnInit, OnDestroy {
 
     this.subs.push(
       this.correoService.consultarPorId(this.correoId).subscribe((correo) => {
+        this.cargandoService.cerrarCargando();
         this.correo = correo;
       })
     );
@@ -36,5 +39,4 @@ export class DetalleCorreoComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subs.forEach(subscription => subscription.unsubscribe());
   }
-
 }

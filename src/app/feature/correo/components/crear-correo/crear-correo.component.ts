@@ -5,11 +5,15 @@ import { CookieService } from 'ngx-cookie-service';
 import { Correo } from '../../shared/model/correo';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { CargandoService } from '@core/services/cargando.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackBarComponent } from '@core/components/snackbar/snackbar.component';
 
 const LONGITUD_MINIMA_PERMITIDA_TITULO = 3;
 const LONGITUD_MAXIMA_PERMITIDA_TITULO = 40;
 const LONGITUD_MINIMA_PERMITIDA_DESCRIPCION = 5;
 const LONGITUD_MAXIMA_PERMITIDA_DESCRIPCION = 80;
+const MENSAJE_CORREO_CREADO_EXITOSAMENTE = 'Correo guardado exitosamente';
 
 @Component({
   selector: 'app-crear-correo',
@@ -21,7 +25,8 @@ export class CrearCorreoComponent implements OnInit, OnDestroy {
   token: string;
   subs: Subscription; 
 
-  constructor(protected correoService: CorreoService, private cookieService: CookieService, private router: Router) { }
+  constructor(protected correoService: CorreoService, private cookieService: CookieService, 
+              private router: Router, private cargandoService: CargandoService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.construirFormularioCorreo();
@@ -33,6 +38,7 @@ export class CrearCorreoComponent implements OnInit, OnDestroy {
   }
 
   crear() {
+    this.cargandoService.abrirCargando();
     const correo: Correo = {
       userId: this.token, 
       title: this.obtenerValorFormulario('title'),
@@ -41,7 +47,8 @@ export class CrearCorreoComponent implements OnInit, OnDestroy {
     };
     this.subs = this.correoService.guardar(correo).subscribe(
       () => {
-        window.alert('usuario creado');
+        this.cargandoService.cerrarCargando();
+        SnackBarComponent.abrirSnackBar(MENSAJE_CORREO_CREADO_EXITOSAMENTE, this.snackBar);
         this.router.navigate(['correo']);
       }
     );

@@ -11,16 +11,17 @@ import { ManejadorError } from './interceptor/manejador-error';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { CargandoComponent } from './components/cargando/cargando.component';
 
 @NgModule({
-  declarations: [ToolbarComponent, NavbarComponent],
+  declarations: [ToolbarComponent, NavbarComponent, CargandoComponent],
   imports: [
     CommonModule,
     RouterModule,
     MatToolbarModule,
     MatButtonModule
   ],
-  exports: [ToolbarComponent, NavbarComponent],
+  exports: [ToolbarComponent, NavbarComponent, CargandoComponent  ],
   providers: [
     HttpService,
     SecurityGuard,

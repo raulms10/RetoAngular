@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { LimiteCaracteresPipe } from './pipe/limite-caracteres.pipe';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSnackBarModule
   ]
 })
 export class SharedModule { }

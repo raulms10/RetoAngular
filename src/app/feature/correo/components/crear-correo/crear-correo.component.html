@@ -22,6 +22,6 @@
         </mat-form-field>
       </div>
     </div>
-    <button matTooltip="Guardar correo" mat-raised-button color="primary" id="botonGuardar">Guardar</button>
+    <button matTooltip="Guardar correo" [disabled]="correoForm.invalid" mat-raised-button color="primary" id="botonGuardar">Guardar</button>
   </form>
 </div>

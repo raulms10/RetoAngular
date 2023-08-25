@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Correo } from '../../shared/model/correo';
 import { Subscription } from 'rxjs';
 import { CorreoService } from '../../shared/service/correo.service';
+import { CargandoService } from '@core/services/cargando.service';
 
 @Component({
   selector: 'app-listar-correo',
@@ -12,11 +13,13 @@ export class ListarCorreoComponent implements OnInit, OnDestroy {
   listaCorreos: Correo[];
   private subs: Subscription[] = [];
 
-  constructor(protected correoService: CorreoService) { }
+  constructor(protected correoService: CorreoService, private cargandoService: CargandoService) { }
   
   ngOnInit(): void {
+    this.cargandoService.abrirCargando();
     this.subs.push(
       this.correoService.consultar().subscribe((correos) => {
+        this.cargandoService.cerrarCargando();
         this.listaCorreos = correos;
       })
     );
@@ -28,9 +31,7 @@ export class ListarCorreoComponent implements OnInit, OnDestroy {
 
   eliminarCorreo(correo: Correo): void {
     this.subs.push(
-      this.correoService.eliminar(correo).subscribe((resultado) => {
-        console.log('Producto eliminado: ' + resultado);
-      })
+      this.correoService.eliminar(correo).subscribe(() => {})
     );
 
     // Como la API no soporta una persistencia real, se elimina de la lista de Correo previamente cargada, se restablece al recargar el componente
