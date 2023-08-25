@@ -1,13 +1,13 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title>{{correo.title | limiteCaracteres: 28}}</mat-card-title>
+        <mat-card-title [matTooltip]="correo.title">{{correo.title | limiteCaracteres: 28}}</mat-card-title>
         <mat-card-subtitle>Id: {{correo.id}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions >
-        <button mat-mini-fab color="primary" (click)="eliminarCorreo()" >
+        <button matTooltip="Eliminar correo" mat-mini-fab color="primary" (click)="eliminarCorreo()" >
             <mat-icon>close</mat-icon>
         </button>
-        <button mat-raised-button color="primary" (click)="detalleCorreo()" >Detalle</button>
+        <button matTooltip="Detalle correo" mat-raised-button color="primary" (click)="detalleCorreo()" >Detalle</button>
     </mat-card-actions>
 </mat-card>
 
