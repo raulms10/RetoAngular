@@ -1,14 +1,23 @@
-<h1>Iniciar sesión</h1>
-<h2 *ngIf="token">Usuario logueado como {{token}}. Puede actualizar su id</h2>
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-    <div>
+<div class="card-principal">
+    <h2> Iniciar sesión</h2>
+    <div *ngIf="!token">Para iniciar sesión, escriba un id de usuario (lo que sea) y presione el botón de <i>Iniciar sesión</i></div>
+    <div *ngIf="token">Actualmente se ha logueado como <strong>{{token}}</strong>. Puede actualizar su id de usuario y volver a presionar el botón de <i>Iniciar sesión</i></div>
+    <br/>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div>
-            <label>Id de usuario:</label>
+            <div validar>
+                <mat-form-field>
+                    <mat-label>Id de usuario:</mat-label>
+                    <input matInput type="text" formControlName="tokenUsuario" class="form-control" name="tokenUsuario" id="tokenUsuario">
+                </mat-form-field>
+            </div>
         </div>
-        <div>
-            <input validar type="text" id="tokenUsuario" name="tokenUsuario" placeholder="Id de usuario" class="form-control"
-                formControlName="tokenUsuario">
+        <div class="display-flex">
+            <button mat-raised-button color="primary" [disabled]="loginForm.invalid" id="botonGuardar">Iniciar sesión</button>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <button mat-raised-button color="primary" id="botonSalir">Cerrar sesión</button>
         </div>
-    </div>
-    <button [disabled]="loginForm.invalid" id="botonGuardar">Iniciar sesión</button>
-</form>
+        
+    </form>
+    
+</div>

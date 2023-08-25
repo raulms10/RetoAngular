@@ -9,12 +9,16 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpService } from './services/http.service';
 import { ManejadorError } from './interceptor/manejador-error';
 import { RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [ToolbarComponent, NavbarComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   exports: [ToolbarComponent, NavbarComponent],
   providers: [

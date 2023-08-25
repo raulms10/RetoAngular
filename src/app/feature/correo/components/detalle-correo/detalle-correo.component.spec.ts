@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListarPostComponent } from './listar-post.component';
+import { DetalleCorreoComponent } from './detalle-correo.component';
 
-describe('ListarPostComponent', () => {
-  let component: ListarPostComponent;
-  let fixture: ComponentFixture<ListarPostComponent>;
+describe('DetalleCorreoComponent', () => {
+  let component: DetalleCorreoComponent;
+  let fixture: ComponentFixture<DetalleCorreoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListarPostComponent ]
+      declarations: [ DetalleCorreoComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ListarPostComponent);
+    fixture = TestBed.createComponent(DetalleCorreoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

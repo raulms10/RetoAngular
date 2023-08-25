@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DetallePostComponent } from './detalle-post.component';
+import { CardCorreoComponent } from './card-correo.component';
 
-describe('DetallePostComponent', () => {
-  let component: DetallePostComponent;
-  let fixture: ComponentFixture<DetallePostComponent>;
+describe('CardCorreoComponent', () => {
+  let component: CardCorreoComponent;
+  let fixture: ComponentFixture<CardCorreoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DetallePostComponent ]
+      declarations: [ CardCorreoComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DetallePostComponent);
+    fixture = TestBed.createComponent(CardCorreoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

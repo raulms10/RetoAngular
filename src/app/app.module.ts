@@ -8,7 +8,7 @@ import { ProductoModule } from '@producto/producto.module';
 import { ClienteModule } from '@cliente/cliente.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
-import { PostModule } from './feature/post/post.module';
+import { CorreoModule } from './feature/correo/correo.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -24,7 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProductoModule,
     ClienteModule,
     CoreModule,
-    PostModule,
+    CorreoModule,
     BrowserAnimationsModule
   ],
   providers: [CookieService],

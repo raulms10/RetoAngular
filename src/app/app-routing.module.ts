@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule), 
     canActivateChild: [SecurityGuard], canLoad: [SecurityGuard] },
   { path: 'login', loadChildren: () => import('@cliente/cliente.module').then(mod => mod.ClienteModule) },
-  { path: 'post', loadChildren: () => import('./feature/post/post.module').then(mod => mod.PostModule), 
+  { path: 'correo', loadChildren: () => import('./feature/correo/correo.module').then(mod => mod.CorreoModule), 
     canActivateChild: [SecurityGuard], canLoad: [SecurityGuard] }
 ];
 

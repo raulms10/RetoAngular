@@ -10,13 +10,12 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class LoginComponent implements OnInit {
   token: string;
-  loginForm = new FormGroup({
-    tokenUsuario: new FormControl('', Validators.required)
-  });
+  loginForm: FormGroup;
 
   constructor(private cookieService: CookieService, private router: Router) { }
 
   ngOnInit(): void {
+    this.construirFormularioLogin();
     this.token = this.cookieService.get('token');
     const control = this.loginForm.get('tokenUsuario') as FormControl;
     control.setValue(this.token);
@@ -28,4 +27,9 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
+  private construirFormularioLogin() {
+    this.loginForm = new FormGroup({
+      tokenUsuario: new FormControl('', Validators.required)
+    });
+  }
 }
