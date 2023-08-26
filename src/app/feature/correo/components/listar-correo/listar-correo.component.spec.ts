@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListarCorreoComponent } from './listar-correo.component';
+import { HttpService } from '@core/services/http.service';
+import { CorreoService } from '../../shared/service/correo.service';
+import { CargandoService } from '@core/services/cargando.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ListarCorreoComponent', () => {
   let component: ListarCorreoComponent;
@@ -8,7 +12,9 @@ describe('ListarCorreoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListarCorreoComponent ]
+      declarations: [ ListarCorreoComponent ],
+      imports: [HttpClientModule],
+      providers: [HttpService, CorreoService, CargandoService]
     })
     .compileComponents();
 

@@ -8,7 +8,7 @@ import { CargandoService } from '@core/services/cargando.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app-base';
+  title = 'Reto Angular';
   public companies: MenuItem[] = [
     { url: '/home', nombre: 'Inicio' },
     { url: '/correo', nombre: 'Correos'},
