@@ -38,7 +38,9 @@ export class CrearCorreoComponent implements OnInit, OnDestroy {
   }
 
   crear() {
-    this.cargandoService.abrirCargando();
+    setTimeout( () => { //Para evitar ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked
+      this.cargandoService.abrirCargando();
+    }, 0);
     const correo: Correo = {
       userId: this.token, 
       title: this.obtenerValorFormulario('title'),

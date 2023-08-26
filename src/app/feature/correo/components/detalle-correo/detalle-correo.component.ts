@@ -21,7 +21,9 @@ export class DetalleCorreoComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, protected correoService: CorreoService, private cargandoService: CargandoService) { }
   
   ngOnInit(): void {
-    this.cargandoService.abrirCargando();
+    setTimeout( () => { //Para evitar ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked
+      this.cargandoService.abrirCargando();
+    }, 0);
     this.subs.push(
       this.tokenId$.subscribe(paramMap => {
         this.correoId = paramMap;

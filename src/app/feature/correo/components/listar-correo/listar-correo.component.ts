@@ -16,7 +16,9 @@ export class ListarCorreoComponent implements OnInit, OnDestroy {
   constructor(protected correoService: CorreoService, private cargandoService: CargandoService) { }
   
   ngOnInit(): void {
-    this.cargandoService.abrirCargando();
+    setTimeout( () => { //Para evitar ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked
+      this.cargandoService.abrirCargando();
+    }, 0);
     this.subs.push(
       this.correoService.consultar().subscribe((correos) => {
         this.cargandoService.cerrarCargando();
