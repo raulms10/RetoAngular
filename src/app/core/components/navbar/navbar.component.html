@@ -1,3 +1,5 @@
-<nav>
-  <a *ngFor="let item of items" [routerLink]="item.url" routerLinkActive="active">{{item.nombre}}</a>
-</nav>
+<mat-toolbar color="primary" mat-tab-nav-bar >
+  <span>Reto Angular</span>
+  <div class="spacer"></div>
+  <a mat-button *ngFor="let item of items" [routerLink]="item.url" routerLinkActive="active">{{item.nombre}}</a>
+</mat-toolbar>

@@ -1,1 +1,15 @@
-<p>home works!</p>
+
+<div class="card-principal">
+    En esta aplicación se puede consultar los correos desde el API <a rel="stylesheet" target=”_blank” href="https://jsonplaceholder.typicode.com/posts">JSONPlaceholder</a>. 
+    De la misma manera, se puede crear un nuevo correo, eliminar uno existente y consultar detalle de un correo seleccionado.
+    <br/><br/>
+    Es importante destacar que el <strong>API utilizado NO soporta la persitencia real de los datos</strong>, por lo tanto, 
+    la aplicación hace el llamado de los métodos POST, GET y DELETE, pero sus datos solo cambian visualmente (caso eliminar), 
+    ya que una vez se recargue el componente que muestra la lista de los correos, se mostrarán los datos 
+    arrojados de dicha API.
+    <br/><br/>
+    La aplicación <strong>simula el inicio de sesión</strong>, que es escribir un id de usuario (lo que sea) en el respectivo formulario. 
+    Este id se guarda como una cookie de la aplicación y con ese valor un <strong>Guard</strong> valida si tiene permiso o no
+    para acceder a la sección de Correos, en otras palabras, la sección de Correos solo podrá ser ingresada si se 
+    guarda un id de usuario sin importar qué valor sea.
+</div>    

@@ -1,0 +1,12 @@
+<div class="card-principal">
+    <h2>Detalle correo</h2>
+    <div *ngIf="correo">
+        <h3><strong>Id correo: </strong>{{correo.id}}</h3>
+        <h3><strong>Id usuario: </strong>{{correo.userId}}</h3>
+        <h3><strong>Título: </strong>{{correo.title}}</h3>
+        <h3><strong>Cuerpo: </strong>{{correo.body}}</h3>
+    </div>
+    <div *ngIf="!correo">
+        Aún no hay información de este correo
+    </div>  
+</div>
