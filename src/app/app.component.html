@@ -1,0 +1,6 @@
+<app-navbar [items]='companies'></app-navbar>
+<br/>
+<app-cargando *ngIf="(mostrarCargando$ | async)"></app-cargando>
+<router-outlet></router-outlet>
+
+

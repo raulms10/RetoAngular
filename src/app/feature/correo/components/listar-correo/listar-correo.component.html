@@ -1,0 +1,11 @@
+<div class="card-principal">
+   <h2>Lista de correos</h2>
+   <div class="button-mas">
+      <button matTooltip="Crear un nuevo correo" mat-fab color="accent" routerLink="crear" aria-label="Crear un nuevo correo">
+         <mat-icon>add</mat-icon>
+      </button>
+   </div>
+   <div *ngFor="let item of listaCorreos" class="contenedor">
+      <app-card-correo class="items" [correo]="item" (eventEleminarCorreo)="eliminarCorreo(item)" ></app-card-correo> 
+   </div>
+</div>

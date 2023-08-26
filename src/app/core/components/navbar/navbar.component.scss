@@ -1,0 +1,15 @@
+:host {
+    border: 0 solid #e1e1e1;
+    border-bottom-width: 1px;
+    display: block;
+    height: auto;
+    padding: 0 16px;
+}
+
+.navbar a.router-link-active {
+    color: #106cc8;
+}
+
+.spacer {
+    flex: 0.1 0.1 auto;
+}

@@ -1,0 +1,30 @@
+.contenedor {
+    width:33%;
+    float:left;
+}
+
+@media (max-width: 800px) {
+    .contenedor {
+        width: 50%;
+    }
+}
+
+@media (max-width: 400px) {
+    .contenedor {
+        width: 100%;
+    }
+}
+
+.button-mas {
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+.items {
+    text-align: center;
+}
+
+.columna {
+    width:33%;
+    float:left;
+}
